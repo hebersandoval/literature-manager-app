@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   # Before filters
 
-  # Confirms a logged-in user, can't just go to user/1/edit and edit someone elses profile.
+  # confirms a logged-in user, can't just go to user/1/edit and edit someone elses profile.
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
