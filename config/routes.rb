@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
+# Custom named routes for help, about, contact and signup page
   root 'static_pages#home'
-
   get 'help' => 'static_pages#help'
-
   get 'about' => 'static_pages#about'
-
   get 'contact' => 'static_pages#contact'
-
   get 'signup' => 'users#new'
 
+  # Custom named routes for login and logout page
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+  # Users resource routes, which provide CRUD functionality
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

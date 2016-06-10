@@ -6,10 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user # logs in new user automatically, method defined in SessionsHelper
       flash[:success] = "Welcome, your account has been created."
       redirect_to @user
     else
-      flash.now[:alert] = "Your account has not been created."
+      flash.now[:danger] = "Your account has not been created."
       render "new"
     end
   end
